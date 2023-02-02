@@ -1,6 +1,6 @@
 android_app_import {
 	name: "MotoCalculator",
-	apk: "MotoCalculator/calculator.apk",
+	apk: "MotoCalculator/MotoCalculator.apk",
 	presigned: true,
 	dex_preopt: {
 		enabled: false,
