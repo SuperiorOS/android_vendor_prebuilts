@@ -18,7 +18,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Flipendo \
     Superiorwalls \
-    ViaBrowser \
     Quickpic
 
 # MotoCalculator
@@ -28,4 +27,13 @@ PRODUCT_PACKAGES += \
 else
 PRODUCT_PACKAGES += \
     ExactCalculator
+endif
+
+# DuckDuckGo
+ifeq ($(USE_DUCKDUCKGO),true)
+PRODUCT_PACKAGES += \
+    DuckDuckGo
+else
+PRODUCT_PACKAGES += \
+    ViaBrowser
 endif

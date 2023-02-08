@@ -27,3 +27,14 @@ USE_QUICKPIC := true
 <p align="center">
 <img src="https://user-images.githubusercontent.com/29405483/217512230-d7c2da50-0580-421f-88a1-282b02f62067.png" />
 </p>
+
+To Include DuckDuckGo:
+----------------------
+
+Add the following line to your device's superior_device.mk file:
+`
+USE_DUCKDUCKGO := true
+`
+<p align="center">
+<img src="https://user-images.githubusercontent.com/29405483/217515826-cdb633f9-c113-4f64-a6c2-23e6ce650bb6.png" />
+</p>
