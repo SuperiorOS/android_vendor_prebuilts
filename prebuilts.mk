@@ -18,7 +18,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Flipendo \
     Superiorwalls \
-    ViaBrowser
+    ViaBrowser \
+    Quickpic
 
 # MotoCalculator
 ifeq ($(USE_MOTO_CALCULATOR),true)

@@ -16,3 +16,14 @@ USE_MOTO_CALCULATOR := true
 <img src="https://user-images.githubusercontent.com/29405483/216300624-ee3ad401-c7be-490c-8c21-486435a5aa40.png" />
 </p>
 
+
+To Include Quickpic:
+--------------------
+
+Add the following line to your device's superior_device.mk file:
+`
+USE_QUICKPIC := true
+`
+<p align="center">
+<img src="https://user-images.githubusercontent.com/29405483/217512230-d7c2da50-0580-421f-88a1-282b02f62067.png" />
+</p>

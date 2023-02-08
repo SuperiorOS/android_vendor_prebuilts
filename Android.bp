@@ -9,3 +9,15 @@ android_app_import {
 	product_specific: true,
 	overrides: ["ExactCalculator" , "CalculatorGooglePrebuilt"],
 }
+
+android_app_import {
+	name: "Quickpic",
+	apk: "Quickpic/Quickpic.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+	overrides: ["Gallery2"],
+}
