@@ -17,8 +17,13 @@ PRODUCT_COPY_FILES += \
 # Prebuilt packages
 PRODUCT_PACKAGES += \
     Flipendo \
-    Superiorwalls \
+    Superiorwalls
+
+# QuickPic
+ifeq ($(USE_QUICKPIC),true)
+PRODUCT_PACKAGES += \
     Quickpic
+endif
 
 # MotoCalculator
 ifeq ($(USE_MOTO_CALCULATOR),true)
