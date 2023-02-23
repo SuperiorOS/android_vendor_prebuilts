@@ -9,6 +9,39 @@
 # limitations under the License.
 #
 
+# Backup Tool
+PRODUCT_COPY_FILES += \
+    vendor/prebuilts/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/prebuilts/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/prebuilts/common/bin/50-superior.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-superior.sh
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/addon.d/50-superior.sh
+
+ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
+PRODUCT_COPY_FILES += \
+    vendor/prebuilts/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/prebuilts/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/prebuilts/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+endif
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/bin/backuptool_ab.sh \
+    system/bin/backuptool_ab.functions \
+    system/bin/backuptool_postinstall.sh
+
+# init file
+PRODUCT_COPY_FILES += \
+    vendor/prebuilts/common/etc/init/superior-system.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/superior-system.rc \
+    vendor/prebuilts/common/etc/init/superior-updates.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/superior-updates.rc \
+    vendor/prebuilts/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
+
+#Audio
+include vendor/prebuilts/audio.mk
+
+# Bootanimation
+include vendor/prebuilts/common/bootanimation/bootanimation.mk
+
 # Google Photos Pixel Exclusive XML
 PRODUCT_COPY_FILES += \
     vendor/prebuilts/etc/sysconfig/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml \
