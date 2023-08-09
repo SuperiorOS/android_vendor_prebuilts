@@ -56,8 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt packages
 PRODUCT_PACKAGES += \
-    Flipendo \
-    Superiorwalls
+    Flipendo
 
 # QuickPic
 ifeq ($(USE_QUICKPIC),true)
