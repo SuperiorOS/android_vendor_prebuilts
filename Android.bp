@@ -33,3 +33,21 @@ android_app_import {
 	product_specific: true,
 	overrides: ["Browser2" , "ViaBrowser"],
 }
+
+android_app_import {
+        name: "Flipendo",
+        certificate: "platform",
+        system_ext_specific: true,
+        apk: "Flipendo/Flipendo.apk",
+
+}
+
+android_app_import {
+        name: "ViaBrowser",
+        dex_preopt: {
+            enabled: false,
+        },
+        apk: "ViaBrowser/ViaBrowser.apk",
+        presigned: true,
+
+}
