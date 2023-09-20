@@ -64,6 +64,15 @@ PRODUCT_PACKAGES += \
     Quickpic
 endif
 
+# DOT Gallery
+ifeq ($(USE_DOTGALLERY),true)
+PRODUCT_PACKAGES += \
+    DotGallery
+
+PRODUCT_COPY_FILES += \
+    vendor/prebuilts/permissions/privapp-permissions-dotgallery.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-dotgallery.xml
+endif
+
 # MotoCalculator
 ifeq ($(USE_MOTO_CALCULATOR),true)
 PRODUCT_PACKAGES += \

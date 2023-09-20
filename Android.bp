@@ -51,3 +51,15 @@ android_app_import {
         presigned: true,
 
 }
+
+android_app_import {
+	name: "DotGallery",
+	apk: "DotGallery/DotGallery.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+	overrides: ["Gallery2"],
+}
