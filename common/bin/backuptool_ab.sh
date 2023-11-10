@@ -5,7 +5,7 @@
 
 export S=/system
 export C=/postinstall/tmp/backupdir
-export V=13
+export V=14
 
 export ADDOND_VERSION=3
 
@@ -95,7 +95,7 @@ fi
 ### Mount helpers ###
 #####################
 get_block_for_mount_point() {
-  grep -v "^#" /vendor/etc/fstab.$(getprop ro.boot.hardware) | grep " $1 " | tail -n1 | tr -s ' ' | cut -d' ' -f1
+  grep -v "^#" /vendor/etc/fstab.$(getprop ro.boot.hardware) | grep "[[:blank:]]$1[[:blank:]]" | tail -n1 | tr -s [:blank:] ' ' | cut -d' ' -f1
 }
 
 find_block() {

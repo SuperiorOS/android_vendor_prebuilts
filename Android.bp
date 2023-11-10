@@ -35,14 +35,6 @@ android_app_import {
 }
 
 android_app_import {
-        name: "Flipendo",
-        certificate: "platform",
-        system_ext_specific: true,
-        apk: "Flipendo/Flipendo.apk",
-
-}
-
-android_app_import {
         name: "ViaBrowser",
         dex_preopt: {
             enabled: false,
