@@ -35,6 +35,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 endif
 
+# Cloned app exemption
+PRODUCT_COPY_FILES += \
+    vendor/prebuilts/common/etc/sysconfig/preinstalled-packages-platform-superior-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-superior-product.xml
+
 # init file
 PRODUCT_COPY_FILES += \
     vendor/prebuilts/common/etc/init/init.superior-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.superior-system_ext.rc \
