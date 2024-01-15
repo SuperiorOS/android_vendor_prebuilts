@@ -59,12 +59,6 @@ PRODUCT_COPY_FILES += \
     vendor/prebuilts/etc/sysconfig/pixel_experience_2020.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020.xml \
     vendor/prebuilts/etc/sysconfig/pixel_experience_2020_midyear.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020_midyear.xml
 
-# QuickPic
-ifeq ($(USE_QUICKPIC),true)
-PRODUCT_PACKAGES += \
-    Quickpic
-endif
-
 # DOT Gallery
 PRODUCT_PACKAGES += \
     DotGallery

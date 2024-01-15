@@ -11,18 +11,6 @@ android_app_import {
 }
 
 android_app_import {
-	name: "Quickpic",
-	apk: "Quickpic/Quickpic.apk",
-	presigned: true,
-	dex_preopt: {
-		enabled: false,
-	},
-	privileged: true,
-	product_specific: true,
-	overrides: ["Gallery2"],
-}
-
-android_app_import {
 	name: "DuckDuckGo",
 	apk: "DuckDuckGo/DuckDuckGo.apk",
 	presigned: true,
