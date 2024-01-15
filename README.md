@@ -27,14 +27,3 @@ USE_DUCKDUCKGO := true
 <p align="center">
 <img src="https://user-images.githubusercontent.com/29405483/217515826-cdb633f9-c113-4f64-a6c2-23e6ce650bb6.png" />
 </p>
-
-To Include DotGallery:
----------------------
-
-Add the following line to your device's superior_device.mk file:
-`
-USE_DOTGALLERY := true
-`
-<p align="center">
-<img src="https://github.com/SuperiorOS/android_vendor_prebuilts/assets/29405483/18d951d0-5bb7-4340-9760-4ee1b2f3873f" />
-</p>
