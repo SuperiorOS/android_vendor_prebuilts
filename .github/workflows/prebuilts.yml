@@ -1,0 +1,81 @@
+name: Update Prebuilt APKs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * 0"  # Run every Sunday at 9 AM IST (3:30 AM UTC)
+
+jobs:
+  update-apps:
+    runs-on: ubuntu-latest
+
+    env:
+      ACCESS_TOKEN: ${{ secrets.TOKEN }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Download Via Browser
+        run: |
+          curl -LJO https://res.viayoo.com/v1/via-release.apk
+
+      - name: Download DotGallery APK
+        uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "IacobIonut01/Gallery"
+          latest: true
+          fileName: "*.apk"
+
+      - name: Download DuckDuckGo APK
+        uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "duckduckgo/Android"
+          latest: true
+          fileName: "*.apk"
+
+      - name: Move APKs
+        run: |
+          rm -f *nomaps*.apk
+          mv via-release.apk ViaBrowser/ViaBrowser.apk
+          mv Gallery*.apk DotGallery/DotGallery.apk
+          mv duckduckgo*.apk DuckDuckGo/DuckDuckGo.apk
+
+      - name: Check for Updated Apps
+        id: check_updates
+        run: |
+          CHANGED_FILES=$(git diff --name-only)
+          UPDATED_APPS=""
+          
+          if echo "$CHANGED_FILES" | grep -q "ViaBrowser"; then
+            UPDATED_APPS+="ViaBrowser, "
+          fi
+          
+          if echo "$CHANGED_FILES" | grep -q "DotGallery"; then
+            UPDATED_APPS+="DotGallery, "
+          fi
+          
+          if echo "$CHANGED_FILES" | grep -q "DuckDuckGo"; then
+            UPDATED_APPS+="DuckDuckGo"
+          fi
+          
+          echo "UPDATED_APPS=$UPDATED_APPS" >> $GITHUB_ENV
+
+      - name: Commit Changes
+        run: |
+          git config --local user.email "sipunkumar85@gmail.com"
+          git config --local user.name "S I P U N"
+          UPDATED_APPS=$(echo $UPDATED_APPS | sed 's/,$//')
+          git add .
+          git commit -sm "prebuilts: Update $UPDATED_APPS"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ env.ACCESS_TOKEN }}
