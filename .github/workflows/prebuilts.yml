@@ -3,7 +3,7 @@ name: Update Prebuilt APKs
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 3 * * 0"  # Run every Sunday at 9 AM IST (3:30 AM UTC)
+    - cron: "0 3 * * 0" # Run every Sunday at 9 AM IST (3:30 AM UTC)
 
 jobs:
   update-apps:
@@ -19,8 +19,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt'
-          java-version: '11'
+          distribution: "adopt"
+          java-version: "11"
 
       - name: Download Via Browser
         run: |
@@ -52,20 +52,25 @@ jobs:
         run: |
           CHANGED_FILES=$(git diff --name-only)
           UPDATED_APPS=""
-          
+
           if echo "$CHANGED_FILES" | grep -q "ViaBrowser"; then
             UPDATED_APPS+="ViaBrowser, "
           fi
-          
+
           if echo "$CHANGED_FILES" | grep -q "DotGallery"; then
             UPDATED_APPS+="DotGallery, "
           fi
-          
+
           if echo "$CHANGED_FILES" | grep -q "DuckDuckGo"; then
             UPDATED_APPS+="DuckDuckGo"
           fi
-          
-          echo "UPDATED_APPS=$UPDATED_APPS" >> $GITHUB_ENV
+
+          if [ -n "$UPDATED_APPS" ]; then
+            echo "UPDATED_APPS=$UPDATED_APPS" >> $GITHUB_ENV
+          else
+            echo "No apps updated, skipping further steps."
+            exit 0
+          fi
 
       - name: Commit Changes
         run: |
