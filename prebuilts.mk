@@ -64,11 +64,13 @@ PRODUCT_COPY_FILES += \
     vendor/prebuilts/etc/sysconfig/pixel_experience_2020_midyear.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_experience_2020_midyear.xml
 
 # DOT Gallery
+ifeq ($(USE_DOTGALLERY),true)
 PRODUCT_PACKAGES += \
     DotGallery
 
 PRODUCT_COPY_FILES += \
     vendor/prebuilts/permissions/privapp-permissions-dotgallery.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-dotgallery.xml
+endif
 
 # MotoCalculator
 ifeq ($(USE_MOTO_CALCULATOR),true)
