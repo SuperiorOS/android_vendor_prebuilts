@@ -89,3 +89,9 @@ else
 PRODUCT_PACKAGES += \
     ViaBrowser
 endif
+
+# Keyboard
+ifneq ($(BUILD_WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    Keyboard
+endif
