@@ -40,20 +40,12 @@ jobs:
           latest: true
           fileName: "*.apk"
 
-      - name: Download Keyboard APK
-        uses: robinraju/release-downloader@v1.8
-        with:
-          repository: "FossifyOrg/Keyboard"
-          latest: true
-          fileName: "*.apk"
-
       - name: Move APKs
         run: |
           rm -f *nomaps*.apk
           mv via-release.apk ViaBrowser/ViaBrowser.apk
           mv Gallery*.apk DotGallery/DotGallery.apk
           mv duckduckgo*.apk DuckDuckGo/DuckDuckGo.apk
-          mv keyboard*.apk Keyboard/Keyboard.apk
 
       - name: Check for Updated Apps
         id: check_updates
@@ -71,10 +63,6 @@ jobs:
 
           if echo "$CHANGED_FILES" | grep -q "DuckDuckGo"; then
             UPDATED_APPS+="DuckDuckGo"
-          fi
-
-          if echo "$CHANGED_FILES" | grep -q "Keyboard"; then
-            UPDATED_APPS+="Keyboard"
           fi
 
           if [ -n "$UPDATED_APPS" ]; then

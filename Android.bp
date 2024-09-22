@@ -20,7 +20,7 @@ android_app_import {
 	},
         preprocessed: true,
 	privileged: true,
-	skip_preprocessed_apk_checks: true,
+        skip_preprocessed_apk_checks: true,
 	product_specific: true,
 	overrides: ["Browser2" , "ViaBrowser"],
 }
@@ -58,7 +58,6 @@ android_app_import {
 	},
         preprocessed: true,
 	privileged: true,
-	skip_preprocessed_apk_checks: true,
 	product_specific: true,
 	overrides: ["LatinIME"],
 }
