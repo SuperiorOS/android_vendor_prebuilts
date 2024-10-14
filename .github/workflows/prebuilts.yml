@@ -26,13 +26,6 @@ jobs:
         run: |
           curl -LJO https://res.viayoo.com/v1/via-release.apk
 
-      - name: Download DotGallery APK
-        uses: robinraju/release-downloader@v1.8
-        with:
-          repository: "IacobIonut01/Gallery"
-          latest: true
-          fileName: "*.apk"
-
       - name: Download DuckDuckGo APK
         uses: robinraju/release-downloader@v1.8
         with:
@@ -44,7 +37,6 @@ jobs:
         run: |
           rm -f *nomaps*.apk
           mv via-release.apk ViaBrowser/ViaBrowser.apk
-          mv Gallery*.apk DotGallery/DotGallery.apk
           mv duckduckgo*.apk DuckDuckGo/DuckDuckGo.apk
 
       - name: Check for Updated Apps
@@ -55,10 +47,6 @@ jobs:
 
           if echo "$CHANGED_FILES" | grep -q "ViaBrowser"; then
             UPDATED_APPS+="ViaBrowser, "
-          fi
-
-          if echo "$CHANGED_FILES" | grep -q "DotGallery"; then
-            UPDATED_APPS+="DotGallery, "
           fi
 
           if echo "$CHANGED_FILES" | grep -q "DuckDuckGo"; then
