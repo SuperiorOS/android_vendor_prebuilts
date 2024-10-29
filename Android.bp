@@ -24,27 +24,3 @@ android_app_import {
 	product_specific: true,
 	overrides: ["Browser2" , "ViaBrowser"],
 }
-
-android_app_import {
-        name: "ViaBrowser",
-        dex_preopt: {
-            enabled: false,
-        },
-        apk: "ViaBrowser/ViaBrowser.apk",
-        presigned: true,
-        preprocessed: true,
-
-}
-
-android_app_import {
-	name: "DotGallery",
-	apk: "DotGallery/DotGallery.apk",
-	presigned: true,
-	dex_preopt: {
-		enabled: false,
-	},
-        preprocessed: true,
-	privileged: true,
-	product_specific: true,
-	overrides: ["Gallery2" , "Glimpse"],
-}
